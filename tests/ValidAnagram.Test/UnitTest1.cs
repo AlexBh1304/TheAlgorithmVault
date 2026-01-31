@@ -8,7 +8,7 @@ public class UnitTest1
     [InlineData("jar", "jam", false)]
     public void validAnagram(string a, string b, bool result)
     {
-        var x = Solution.isAnagram2(a,b);
+        var x = Solution.isAnagram3(a,b);
         Assert.Equal(x,result);
     }
 }

@@ -5,7 +5,7 @@
         public static void Main(string[] args)
         {
             string s = "jam";
-            string t = "bbb";
+            string t = "amj";
             Console.WriteLine(Solution.isAnagram2(s,t));
             //Solution.isAnagram2(s,t);
         }
@@ -50,8 +50,16 @@
                 tCount[t[i]] = tCount.GetValueOrDefault(t[i],0) + 1;
 
             }
+
+            foreach (var kv in sCount)
+            {
+                if(!tCount.ContainsKey(kv.Key) || tCount[kv.Key] != kv.Value)
+                {
+                    return false;
+                }
+            }
             
-            return sCount.Count == tCount.Count && !sCount.Except(tCount).Any();
+            return true;
             
             
 

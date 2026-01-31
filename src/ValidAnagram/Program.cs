@@ -5,8 +5,8 @@
         public static void Main(string[] args)
         {
             string s = "jam";
-            string t = "amj";
-            Console.WriteLine(Solution.isAnagram2(s,t));
+            string t = "ams";
+            Console.WriteLine(Solution.isAnagram3(s,t));
             //Solution.isAnagram2(s,t);
         }
     }
@@ -65,6 +65,33 @@
 
 
             
+        }
+
+        public static bool isAnagram3(string s, string t)
+        {
+            if(s.Length != t.Length)
+            {
+                return false;
+            }
+
+            int[] count = new int[26];
+            char[] arrayS = s.ToCharArray();
+            char[] arrayT = t.ToCharArray();
+
+            for (int i = 0; i< s.Length; i++)
+            {
+                count[arrayS[i]- 'a']++;
+                count[arrayT[i] - 'a']--;
+            }
+            
+            foreach (var k in count)
+            {
+                if (k != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
 
